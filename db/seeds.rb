@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Calculation.destroy_all
+
+seed1 = Calculation.create(principal: 5000, interest: 0.025, years: 5)

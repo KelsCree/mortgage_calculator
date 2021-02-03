@@ -3,7 +3,7 @@ class CreateCalculations < ActiveRecord::Migration[6.0]
     create_table :calculations do |t|
       t.decimal :principal
       t.decimal :interest
-      t.number :years
+      t.integer :years
       t.decimal :total
 
       t.timestamps
