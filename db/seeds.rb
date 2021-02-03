@@ -8,5 +8,5 @@
 
 Calculation.destroy_all
 
-seed1 = Calculation.create(principal: 5000, interest: 0.025, years: 5)
-seed2 = Calculation.create(principal: 5000, interest: 0.025, years: 1)
+seed1 = Calculation.create(principal: 5000, interest: 0.025, years: 5, total: 5625)
+seed2 = Calculation.create(principal: 5000, interest: 0.025, years: 5, total: 5625)

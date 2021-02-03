@@ -1,5 +1,6 @@
+require 'byebug'
+
 class CalculationsController < ApplicationController
-  # before_action :calculate, only: [:create]
 
   def index
     @calculations = Calculation.all
@@ -12,7 +13,10 @@ class CalculationsController < ApplicationController
   end
 
   def create
-    @total = params[:principal] * (1 + (params[:rate] * params[:years]))
+    @principal = params[:principal].to_f
+    @interest = params[:interest].to_f
+    @years = params[:years].to_i
+    @total = @principal * (1 + (@interest * @years))
     @calculation = Calculation.create(
       principal: params[:principal],
       interest: params[:interest],
@@ -26,5 +30,11 @@ class CalculationsController < ApplicationController
     @calculation = Calculation.find(params[:id])
     @calculation.destroy
     render json: 'Calculation deleted.'
+  end
+
+  def delete_all
+    @calculations = Calculation.all
+    @calculations.destroy
+    render json: 'All deleted.'
   end
 end
